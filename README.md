@@ -52,7 +52,10 @@ To run docker-compose you need:
        
         
 
-        
+!   To run user-service without docker, you need specify profile -Dspring.profiles.active=local   !
+
+
+
 You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-controller  or using Postman.
 
 
