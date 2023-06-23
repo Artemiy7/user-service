@@ -13,6 +13,6 @@ public class ErrorResponse {
     private HttpStatus httpStatus;
     private String path;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime localDateTime;
+    private LocalDateTime timestamp;
     private String message;
 }

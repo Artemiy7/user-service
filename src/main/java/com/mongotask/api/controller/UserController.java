@@ -37,9 +37,9 @@ public class UserController {
     public ResponseEntity createUser(@RequestBody @Valid UserDTO userDTO,
                                      final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI());
+        headers.add("Path", httpServletRequest.getRequestURI());
         if (userDTO.getId() != null) {
-            headers.add("error", "id must be null");
+            headers.add("Error", "Id must be null");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .headers(headers)
                     .build();
@@ -55,7 +55,7 @@ public class UserController {
     public ResponseEntity<UserResponse> getUserById(@PathVariable String id,
                                                     final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI());
+        headers.add("Path", httpServletRequest.getRequestURI());
         Optional<UserDTO> optionalUser = userService.findUser(id);
 
         if (optionalUser.isEmpty())
@@ -76,7 +76,7 @@ public class UserController {
                                                         @RequestBody PaginationRequest paginationRequest,
                                                         final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
+        headers.add("Path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
         try {
             List<UserDTO> list = userService.findAll(map, paginationRequest);
             UserListResponse userListResponse = UserListResponse
@@ -88,12 +88,12 @@ public class UserController {
 
         } catch (NoSuchFilterException noSuchFilterException) {
             log.error("Wrong filter type or value " + noSuchFilterException.getMessage());
-            headers.add("error", "Wrong filter type or value " + noSuchFilterException.getMessage());
+            headers.add("Error", "Wrong filter type or value " + noSuchFilterException.getMessage());
 
             return new ResponseEntity(ErrorResponse.builder()
                     .httpStatus(HttpStatus.BAD_REQUEST)
                     .message(noSuchFilterException.getMessage())
-                    .localDateTime(LocalDateTime.now())
+                    .timestamp(LocalDateTime.now())
                     .path(httpServletRequest.getRequestURI() + httpServletRequest.getQueryString())
                     .build(), headers, HttpStatus.BAD_REQUEST);
         }
@@ -105,13 +105,13 @@ public class UserController {
                                                    @RequestBody @Valid UserDTO userDTO,
                                                    final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI());
+        headers.add("Path", httpServletRequest.getRequestURI());
 
         Optional<UserDTO> optionalUser = userService.updateUser(id, userDTO);
 
         if (optionalUser.isEmpty()) {
             log.info("no such user " + userDTO.getId());
-            headers.add("error", "no such user");
+            headers.add("Error", "No such user");
             return ResponseEntity.badRequest()
                     .headers(headers)
                     .build();
@@ -135,7 +135,7 @@ public class UserController {
 
         if (optionalUser.isEmpty()) {
             log.info("no such user " + userDTO.getId());
-            headers.add("error", "no such user");
+            headers.add("Error", "No such user");
             return ResponseEntity.badRequest()
                     .headers(headers)
                     .build();
@@ -152,7 +152,7 @@ public class UserController {
     public ResponseEntity deleteUser(@PathVariable String id,
                                      final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI());
+        headers.add("Path", httpServletRequest.getRequestURI());
         userService.deleteUser(id);
         log.info("user deleted: user" + id);
         return ResponseEntity.ok()
@@ -164,7 +164,7 @@ public class UserController {
     @GetMapping(value = "/filters")
     public ResponseEntity<List<UserFilterType>> fetchUserFilters(final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
+        headers.add("Path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
         return ResponseEntity.ok()
                 .headers(headers)
                 .body(UserFilterType.getUserFilterTypeList());
