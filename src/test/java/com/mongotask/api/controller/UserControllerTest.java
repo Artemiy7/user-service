@@ -2,6 +2,8 @@ package com.mongotask.api.controller;
 
 
 import com.mongotask.api.model.UserDTO;
+import com.mongotask.api.request.PaginationRequest;
+import com.mongotask.api.response.UserListResponse;
 import com.mongotask.api.response.UserResponse;
 import com.mongotask.api.services.UserService;
 import org.apache.catalina.connector.RequestFacade;
@@ -13,12 +15,13 @@ import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.Optional;
+import java.util.*;
 
 import static org.mockito.Mockito.*;
 
@@ -28,12 +31,18 @@ public class UserControllerTest {
     @Mock
     private UserService userService;
     private UserDTO userDTO;
+    private UserDTO userDTO2;
 
     @BeforeEach
     public void init() {
         userDTO = UserDTO.builder().email("aaaa@gmail.com")
                 .firstName("John")
                 .lastName("John")
+                .build();
+
+        userDTO2 = UserDTO.builder().email("aaaa@gmail.com")
+                .firstName("John")
+                .lastName("Smith")
                 .build();
     }
 
@@ -94,5 +103,27 @@ public class UserControllerTest {
         verify(userService, Mockito.times(1)).findUser("1");
         assert responseEntity.getHeaders().get("Path").get(0).equals("api/v1/user/1");
         assert responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void filterUsers_Ok() {
+        Map<String, String> map = new HashMap<>();
+        map.put("firstName", "John");
+        PaginationRequest paginationRequest = new PaginationRequest(2, 0, "id", Sort.Direction.ASC);
+        List<UserDTO> userDTOList = new ArrayList<>();
+        userDTOList.add(userDTO);
+        userDTOList.add(userDTO2);
+
+        userDTO.setId("1");
+        UserController userController = new UserController(userService);
+        HttpServletRequest httpServletRequest = mock(RequestFacade.class);
+        when(userService.findAll(map, paginationRequest)).thenReturn(userDTOList);
+
+        ResponseEntity<UserListResponse> responseEntity = userController.filterUsers(map, paginationRequest, httpServletRequest);
+
+        verify(userService, Mockito.times(1)).findAll(map, paginationRequest);
+        assert responseEntity.getStatusCode().equals(HttpStatus.OK);
+        assert responseEntity.getBody().getUserDTOList().get(0).equals(userDTO);
+        assert responseEntity.getBody().getUserDTOList().size() == 2;
     }
 }
