@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: example
+      database: users
+      port: 27017
+      host: mongo
+      connection-string: mongodb://mongo:27017/users?authSource=admin
+  config:
+    activate:
+      on-profile: prod
