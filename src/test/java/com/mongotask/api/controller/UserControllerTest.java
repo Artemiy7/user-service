@@ -80,4 +80,19 @@ public class UserControllerTest {
         assert responseEntity.getStatusCode().equals(HttpStatus.OK);
         assert responseEntity.getBody().getUserDTO().equals(userDTO);
     }
+
+    @Test
+    public void findUserById_NotOk() {
+        UserController userController = new UserController(userService);
+        HttpServletRequest httpServletRequest = mock(RequestFacade.class);
+        when(httpServletRequest.getRequestURI()).thenReturn("api/v1/user/1");
+        userDTO.setId("1");
+        when(userService.findUser("1")).thenReturn(Optional.empty());
+
+        ResponseEntity<UserResponse> responseEntity = userController.getUserById("1", httpServletRequest);
+
+        verify(userService, Mockito.times(1)).findUser("1");
+        assert responseEntity.getHeaders().get("Path").get(0).equals("api/v1/user/1");
+        assert responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND);
+    }
 }
