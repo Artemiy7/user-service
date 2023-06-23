@@ -9,7 +9,7 @@ I have done all requirements of this test-task. Additionally I added Swagger API
 
 | Service | Port  |  CI  |
 | :---:   | :---: | :---:   |
-| user-service | 8080   | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Artemiy7/ticket/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Artemiy7/ticket/tree/master)  |
+| user-service | 8080   | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Artemiy7/user-service/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Artemiy7/user-service/tree/main)  |
 | mongodb | 27017   |  |
 
 
