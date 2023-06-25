@@ -137,8 +137,7 @@ public class UserController {
 
     @ApiOperation(value = "Delete User by Id")
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteUser(@PathVariable String id,
-                                     final HttpServletRequest httpServletRequest) {
+    public ResponseEntity deleteUser(@PathVariable String id) {
         userService.deleteUser(id);
         log.info("user deleted: user" + id);
         return ResponseEntity.ok().build();
@@ -146,7 +145,7 @@ public class UserController {
 
     @ApiOperation(value = "Returns number of User filter parameters")
     @GetMapping(value = "/filters")
-    public ResponseEntity<List<UserFilterType>> fetchUserFilters(final HttpServletRequest httpServletRequest) {
+    public ResponseEntity<List<UserFilterType>> fetchUserFilters() {
         return ResponseEntity.ok()
                 .body(UserFilterType.getUserFilterTypeList());
     }

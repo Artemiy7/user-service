@@ -161,4 +161,12 @@ public class UserControllerTest {
         verify(userService, Mockito.times(1)).patchUser("1", userDTO);
         assert responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND);
     }
+
+    @Test
+    public void deleteUser_Ok() {
+        ResponseEntity responseEntity = userController.deleteUser("1");
+
+        verify(userService, Mockito.times(1)).deleteUser("1");
+        assert responseEntity.getStatusCode().equals(HttpStatus.OK);
+    }
 }
