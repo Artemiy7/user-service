@@ -109,7 +109,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
         {
-            "size" : 7,
+            "size" : 3,
             "page" : 0,
             "sortField" : "id",
             "sort" : "DESC"
@@ -121,19 +121,19 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/087a9b86-0579-4fee-b9e0-b5d4197920fd)
+![image](https://github.com/Artemiy7/user-service/assets/83453822/dd00298a-bb0c-4804-ad24-f3b91a25b1ba)
 
 
 
 <h4 align="left">You can use filters and pagination to retrieve data you need:</h4>
 
 
-        GET localhost:8080/api/v1/user?firstName=Jo&firstName=Smith
+        GET localhost:8080/api/v1/user?firstName=Jo&lastName=Smith
         
         
         
         {
-            "size" : 7,
+            "size" : 3,
             "page" : 0,
             "sortField" : "id",
             "sort" : "DESC"
@@ -145,7 +145,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/425302e3-31d9-4255-8146-8c5c75644fc6)
+![image](https://github.com/Artemiy7/user-service/assets/83453822/042b0fdc-f227-40ea-bf38-2404c5bba7db)
 
 
 
