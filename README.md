@@ -272,8 +272,22 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+<h3 align="left">To delete User by Id:</h3>
+
+
+
+
+
+<h4 align="left">Executing Request:</h4>
+
+
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/9f7d7671-bfad-426d-881c-885acbdd1f84)
+
+
+
+
+<h4 align="left">Checking result:</h4>
 
 
 
