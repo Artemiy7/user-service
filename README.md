@@ -15,7 +15,7 @@ I have done all requirements of this test-task. Additionally I added Swagger API
 
 <h3 align="left">Languages and Tools: </h3>
 
-Java 11, Spring Boot, Spring Data MongoDB, Maven, Docker and Docker Compose
+Java 11, Spring Boot, Spring Data MongoDB, Maven, Docker and Docker Compose, JUnit, Mockito, Swagger.
 
 <p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="79" height="79"/> </a> 
 <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="70" height="70"/> </a>
