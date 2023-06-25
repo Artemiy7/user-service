@@ -60,11 +60,15 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
+
 <h3 align="left">UserController endpoints:</h3>
 
 
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/d7d51129-e31d-44ce-966f-b7214a90586b)
+
+
 
 
 
@@ -80,7 +84,10 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
 <h2 align="left">Testing:</h2>
+
+
 
 
 
@@ -93,11 +100,14 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
 <h4 align="left">Result:</h4>
 
 
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/e8334834-bf1e-49ab-9f33-5acd42822ac6)
+
+
 
 
 
@@ -125,7 +135,10 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
+
 <h3 align="left">You can use filters and pagination to retrieve data you need:</h3>
+
 
 
         GET localhost:8080/api/v1/user?firstName=Jo&lastName=Smith
@@ -141,11 +154,15 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
+
 <h4 align="left">Result:</h4>
 
 
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/042b0fdc-f227-40ea-bf38-2404c5bba7db)
+
+
 
 
 
@@ -164,11 +181,16 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
+
+
 <h4 align="left">Executing request:</h4>
 
 
   
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/fa723fcb-1d0f-4327-a451-4eef7341ea68)
+
+
 
 
 
@@ -200,9 +222,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-
-
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/0d661149-2565-41df-b359-5316fee54991)
+
 
 
 
@@ -215,8 +236,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h3 align="left">To update ONLY certain field in User object:</h3>
 
+<h3 align="left">To update ONLY certain field in User object:</h3>
 
 
 
@@ -235,7 +256,9 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)x
+![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)
+
+
 
 
 
@@ -243,13 +266,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/eeca95e3-5216-4c69-a3b6-b4eee5012e69)
-
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/6ff9e3d4-d868-4232-8fe7-4d64a134864c)
 
 
 
