@@ -3,7 +3,7 @@
 Test task:
 https://docs.google.com/document/d/1AdmYWAsjNcBM5zdg4jQxBLpiPr9HtQ76HIfZR_2KWjE/edit
 
-I found this task very interesting and I enjoyed time spent on this test task.
+I found this task very interesting and I enjoyed time spent on it.
 
 I have done all requirements of this test-task. Additionally I added Swagger API documentation, efficient search(paging, sorting, filtering by multiple fields), unit-tests and CI tool(Circle-CI).
 
