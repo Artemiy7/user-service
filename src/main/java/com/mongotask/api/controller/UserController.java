@@ -37,7 +37,6 @@ public class UserController {
     public ResponseEntity createUser(@RequestBody @Valid UserDTO userDTO,
                                      final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI());
         if (userDTO.getId() != null) {
             headers.add("Error", "Id must be null");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -46,7 +45,6 @@ public class UserController {
         }
         userService.createUser(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .headers(headers)
                 .build();
     }
 
@@ -54,19 +52,15 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable String id,
                                                     final HttpServletRequest httpServletRequest) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI());
         Optional<UserDTO> optionalUser = userService.findUser(id);
 
         if (optionalUser.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .headers(headers)
                     .build();
 
         log.info("user found: " + id);
         UserResponse userResponse = UserResponse.buildUserResponse(httpServletRequest.getRequestURI(), optionalUser.get());
         return ResponseEntity.ok()
-                .headers(headers)
                 .body(userResponse);
     }
 
@@ -76,14 +70,10 @@ public class UserController {
                                                         @RequestBody PaginationRequest paginationRequest,
                                                         final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
         try {
             List<UserDTO> list = userService.findAll(map, paginationRequest);
-            UserListResponse userListResponse = UserListResponse
-                    .buildUserResponse(httpServletRequest.getRequestURI() + httpServletRequest.getQueryString(), list);
-
+            UserListResponse userListResponse = UserListResponse.buildUserResponse(httpServletRequest.getRequestURI(), list);
             return ResponseEntity.ok()
-                    .headers(headers)
                     .body(userListResponse);
 
         } catch (NoSuchFilterException noSuchFilterException) {
@@ -95,7 +85,7 @@ public class UserController {
                     .message(noSuchFilterException.getMessage())
                     .timestamp(LocalDateTime.now())
                     .path(httpServletRequest.getRequestURI() + httpServletRequest.getQueryString())
-                    .build(), headers, HttpStatus.BAD_REQUEST);
+                    .build(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -105,14 +95,13 @@ public class UserController {
                                                    @RequestBody @Valid UserDTO userDTO,
                                                    final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI());
 
         Optional<UserDTO> optionalUser = userService.updateUser(id, userDTO);
 
         if (optionalUser.isEmpty()) {
             log.info("no such user " + userDTO.getId());
             headers.add("Error", "No such user");
-            return ResponseEntity.badRequest()
+            return ResponseEntity.notFound()
                     .headers(headers)
                     .build();
         }
@@ -129,14 +118,13 @@ public class UserController {
                                              @RequestBody UserDTO userDTO,
                                              final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("path", httpServletRequest.getRequestURI());
 
         Optional<UserDTO> optionalUser = userService.patchUser(id, userDTO);
 
         if (optionalUser.isEmpty()) {
             log.info("no such user " + userDTO.getId());
             headers.add("Error", "No such user");
-            return ResponseEntity.badRequest()
+            return ResponseEntity.notFound()
                     .headers(headers)
                     .build();
         }
@@ -151,22 +139,15 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable String id,
                                      final HttpServletRequest httpServletRequest) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI());
         userService.deleteUser(id);
         log.info("user deleted: user" + id);
-        return ResponseEntity.ok()
-                .headers(headers)
-                .build();
+        return ResponseEntity.ok().build();
     }
 
     @ApiOperation(value = "Returns number of User filter parameters")
     @GetMapping(value = "/filters")
     public ResponseEntity<List<UserFilterType>> fetchUserFilters(final HttpServletRequest httpServletRequest) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Path", httpServletRequest.getRequestURI() + httpServletRequest.getQueryString());
         return ResponseEntity.ok()
-                .headers(headers)
                 .body(UserFilterType.getUserFilterTypeList());
     }
 }
