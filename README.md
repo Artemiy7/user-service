@@ -127,6 +127,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
         
 
 
+
+
 <h4 align="left">Result:</h4>
 
 
@@ -142,7 +144,6 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
         GET localhost:8080/api/v1/user?firstName=Jo&lastName=Smith
-        
         
         
         {
@@ -252,6 +253,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
+
+
 <h4 align="left">Executing Request:</h4>
 
 
@@ -283,6 +286,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/9f7d7671-bfad-426d-881c-885acbdd1f84)
+
+
 
 
 
