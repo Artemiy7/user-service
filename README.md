@@ -80,11 +80,11 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h3 align="left">Testing:</h3>
+<h2 align="left">Testing:</h2>
 
 
 
-<h4 align="left">To find User by id:</h4>
+<h3 align="left">To find User by id:</h3>
 
 
 
@@ -101,7 +101,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">To find Users using Pagination and Sorting</h4>
+<h3 align="left">To find Users using Pagination and Sorting</h3>
 
 
 
@@ -125,7 +125,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">You can use filters and pagination to retrieve data you need:</h4>
+<h3 align="left">You can use filters and pagination to retrieve data you need:</h3>
 
 
         GET localhost:8080/api/v1/user?firstName=Jo&lastName=Smith
@@ -149,7 +149,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">To create a User:</h4>
+<h3 align="left">To create a User:</h3>
 
 
 
@@ -169,6 +169,10 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
   
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/fa723fcb-1d0f-4327-a451-4eef7341ea68)
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/2744afe8-3148-43d3-98ce-a26b8a7a5a60)
+
 
 
 
