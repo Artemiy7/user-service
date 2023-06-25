@@ -95,7 +95,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-        GET localhost:8080/api/v1/user/25
+        GET localhost:8080/api/v1/user/3
 
 
 
@@ -105,7 +105,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/e8334834-bf1e-49ab-9f33-5acd42822ac6)
+![image](https://github.com/Artemiy7/user-service/assets/83453822/238f21d0-ff32-4e80-b8fe-130cabea7b42)
+
 
 
 
