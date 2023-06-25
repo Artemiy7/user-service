@@ -224,8 +224,25 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 <h4 align="left">Result:</h4>
 
 
+![image](https://github.com/Artemiy7/user-service/assets/83453822/6ff9e3d4-d868-4232-8fe7-4d64a134864c)
+
+
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/872df458-2b2b-4e22-89cb-ef9dc0b8212a)
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/eeca95e3-5216-4c69-a3b6-b4eee5012e69)
+
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/9f7d7671-bfad-426d-881c-885acbdd1f84)
+
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/ae9a5192-5fb3-4f00-af10-8d504945be83)
 
 
 
