@@ -164,11 +164,16 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">Result:</h4>
+<h4 align="left">Executing request:</h4>
 
 
   
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/fa723fcb-1d0f-4327-a451-4eef7341ea68)
+
+
+
+<h4 align="left">Checking result:</h4>
+
 
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/2744afe8-3148-43d3-98ce-a26b8a7a5a60)
@@ -176,7 +181,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">To update a full User object:</h4>
+<h3 align="left">To update a full User object:</h3>
 
 
 
@@ -184,7 +189,6 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
         
         
         {
-            "id": "5",
             "firstName": "Tommy",
             "lastName": "Vercetti",
             "email": "tommy@gmail.com"        
@@ -192,16 +196,9 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
         
 
 
-<h4 align="left">Before Request:</h4>
+<h4 align="left">Executing Request:</h4>
 
 
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/4efa279a-1cef-42fa-92db-5695be0e41a8)
-
-
-
-
-<h4 align="left">After Request:</h4>
 
 
 
@@ -209,7 +206,16 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h4 align="left">To update ONLY certain field in User object:</h4>
+
+<h4 align="left">Checking result:</h4>
+
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/4efa279a-1cef-42fa-92db-5695be0e41a8)
+
+
+
+<h3 align="left">To update ONLY certain field in User object:</h3>
 
 
 
@@ -218,27 +224,35 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
         
         
         {
-            "firstName" : "Neil",
-            "lastName" : "Guinness",
-            "email" : "benkenobi@gmail.com"        
+            "firstName": "Joe",
+            "lastName": "Vercetti",
+            "email": "tommy@gmail.com"        
         }
 
 
 
-<h4 align="left">Result:</h4>
+<h4 align="left">Executing Request:</h4>
 
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)x
+
+
+
+<h4 align="left">Checking result:</h4>
+
+
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/eeca95e3-5216-4c69-a3b6-b4eee5012e69)
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)
 
 ![image](https://github.com/Artemiy7/user-service/assets/83453822/6ff9e3d4-d868-4232-8fe7-4d64a134864c)
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/872df458-2b2b-4e22-89cb-ef9dc0b8212a)
-
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/05680214-9c47-46f4-976e-92dc3e8db798)
-
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/eeca95e3-5216-4c69-a3b6-b4eee5012e69)
 
 
 
