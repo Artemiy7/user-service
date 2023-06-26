@@ -139,7 +139,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h3 align="left">You can use filters and pagination to retrieve data you need:</h3>
+<h3 align="left">You can use search User by firstName, lastName, email:</h3>
 
 
 
