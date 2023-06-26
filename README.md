@@ -208,7 +208,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-        PUT localhost:8080/api/v1/user/1
+        PUT localhost:8080/api/v1/user/4
         
         
         {
