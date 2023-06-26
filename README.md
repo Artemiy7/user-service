@@ -216,14 +216,26 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
             "lastName": "Vercetti",
             "email": "tommy@gmail.com"        
         }
+
+
         
 
 
-<h4 align="left">Result:</h4>
+<h4 align="left">Executing request:</h4>
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/0d661149-2565-41df-b359-5316fee54991)
+![image](https://github.com/Artemiy7/user-service/assets/83453822/d8935bb5-233c-4db7-a6ce-408dfe09b3c9)
+
+
+
+
+
+<h4 align="left">Checking result:</h4>
+
+
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/081052c0-709b-4005-9a61-b45ef25d2e39)
 
 
 
