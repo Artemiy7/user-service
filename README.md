@@ -124,7 +124,9 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/042b0fdc-f227-40ea-bf38-2404c5bba7db)
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/cb702849-3373-408f-98d0-06f004d44869)
+
 
 
 
