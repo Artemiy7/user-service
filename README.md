@@ -65,15 +65,6 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-<h3 align="left">Models:</h3>
-
-
-
-![image](https://github.com/Artemiy7/user-service/assets/83453822/1e56737f-e1f6-46de-b85b-048b6406f5b5)
-
-
-
-
 
 <h2 align="left">Testing:</h2>
 
