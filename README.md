@@ -108,16 +108,8 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-        GET localhost:8080/api/v1/user/
 
-
-        {
-            "size" : 3,
-            "page" : 0,
-            "sortField" : "id",
-            "sort" : "DESC"
-        }
-        
+        GET localhost:8080/api/v1/user?size=3&page=0&sortField=id&sort=DESC
 
 
 
@@ -136,17 +128,7 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-        GET localhost:8080/api/v1/user?firstName=Jo&lastName=Smith
-        
-        
-        {
-            "size" : 3,
-            "page" : 0,
-            "sortField" : "id",
-            "sort" : "DESC"
-        }
-
-
+        GET localhost:8080/api/v1/user?size=3&page=0&sortField=id&sort=DESC&firstName=Jo&lastName=Smith
 
 
 
