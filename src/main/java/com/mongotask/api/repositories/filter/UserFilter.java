@@ -1,6 +1,5 @@
 package com.mongotask.api.repositories.filter;
 
-import com.mongotask.api.util.ApplicationContextProvider;
 import org.springframework.data.mongodb.core.query.Query;
 
 @FunctionalInterface

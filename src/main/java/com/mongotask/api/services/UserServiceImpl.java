@@ -46,8 +46,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> findAll(Map<String, String> map) {
         Query query = new Query();
-        query.with(Sort.by(map.remove("sort_order"), map.remove("sort_field")));
-        query.with(PageRequest.of(Integer.parseInt(map.remove("page")), Integer.parseInt(map.remove("size"))));
 
         for (Map.Entry<String, String> entry : map.entrySet()) {
             UserFilterType userFilterType = UserFilterType.getUserFilterTypeByFilterType(entry.getKey());
@@ -56,6 +54,9 @@ public class UserServiceImpl implements UserService {
 
             userFilterType.filterUser(query, entry.getValue());
         }
+
+        query.with(Sort.by(map.getOrDefault("sort_order", "ASC"), map.getOrDefault("sort_field", "firstName")));
+        query.with(PageRequest.of(Integer.parseInt(map.getOrDefault("page", "0")), Integer.parseInt(map.getOrDefault("size", "3"))));
 
         return mongoTemplate.find(query, User.class)
                 .stream()

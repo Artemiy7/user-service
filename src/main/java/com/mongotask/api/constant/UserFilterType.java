@@ -18,19 +18,19 @@ public enum UserFilterType implements UserFilter  {
     LAST_NAME("lastName", (query, requestParam) -> query.addCriteria(Criteria.where("firstName").regex("^" + requestParam))),
 
     @JsonProperty("email")
-    E_MAIL("email", (query, requestParam) -> query.addCriteria(Criteria.where("firstName").regex("^" + requestParam)));
-//
-//    @JsonProperty("size")
-//    SIZE("size", (query, requestParam) -> query.addCriteria(Criteria.where("firstName").regex("^" + requestParam))),
-//
-//    @JsonProperty("page")
-//    PAGE("page", (query, requestParam) -> query.addCriteria(Criteria.where("firstName").regex("^" + requestParam))),
-//
-//    @JsonProperty("sorting_field")
-//    SORT_FIELD("sorting_field", (query, requestParam) -> query..addCriteria(Criteria.where("firstName").regex("^" + requestParam))),
-//
-//    @JsonProperty("sorting_order")
-//    SORT_ORDER("sorting_order", (query, requestParam));
+    E_MAIL("email", (query, requestParam) -> query.addCriteria(Criteria.where("firstName").regex("^" + requestParam))),
+
+    @JsonProperty("size")
+    SIZE("size", (query, requestParam) -> {}),
+
+    @JsonProperty("page")
+    PAGE("page", (query, requestParam) -> {}),
+
+    @JsonProperty("sort_field")
+    SORT_FIELD("sort_field", (query, requestParam) -> {}),
+
+    @JsonProperty("sort_order")
+    SORT_ORDER("sort_order", (query, requestParam) -> {});
 
     private static final Map<String, UserFilterType> ENUM_MAP;
     public static final List<UserFilterType> OCCASION_FILTER_TYPE_LIST;
@@ -42,9 +42,6 @@ public enum UserFilterType implements UserFilter  {
         this.userFilter = userFilter;
     }
 
-    public String getFilterType() {
-        return filterType;
-    }
     public static List<UserFilterType> getUserFilterTypeList() {
         return OCCASION_FILTER_TYPE_LIST;
     }
