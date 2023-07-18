@@ -106,7 +106,9 @@ You can test API using Swagger http://localhost:8080/swagger-ui.html#/user-contr
 
 
 
-![image](https://github.com/Artemiy7/user-service/assets/83453822/dd00298a-bb0c-4804-ad24-f3b91a25b1ba)
+
+![image](https://github.com/Artemiy7/user-service/assets/83453822/b2aaea82-625a-45df-a6a4-be4ca4fe3922)
+
 
 
 
