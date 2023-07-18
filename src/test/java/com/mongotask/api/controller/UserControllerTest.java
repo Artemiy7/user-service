@@ -2,7 +2,6 @@ package com.mongotask.api.controller;
 
 
 import com.mongotask.api.model.UserDTO;
-import com.mongotask.api.request.PaginationRequest;
 import com.mongotask.api.response.UserListResponse;
 import com.mongotask.api.response.UserResponse;
 import com.mongotask.api.services.UserService;
@@ -14,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -94,17 +92,20 @@ public class UserControllerTest {
     public void filterUsers_Ok() {
         Map<String, String> map = new HashMap<>();
         map.put("firstName", "John");
-        PaginationRequest paginationRequest = new PaginationRequest(2, 0, "id", Sort.Direction.ASC);
+        map.put("sort_order", "DESC");
+        map.put("sort_field", "id");
+        map.put("page", "0");
+        map.put("size", "2");
         List<UserDTO> userDTOList = new ArrayList<>();
         userDTOList.add(userDTO);
         userDTOList.add(userDTO2);
 
         userDTO.setId("1");;
-        when(userService.findAll(map, paginationRequest)).thenReturn(userDTOList);
+        when(userService.findAll(map)).thenReturn(userDTOList);
 
-        ResponseEntity<UserListResponse> responseEntity = userController.filterUsers(map, paginationRequest, httpServletRequest);
+        ResponseEntity<UserListResponse> responseEntity = userController.filterUsers(map, httpServletRequest);
 
-        verify(userService, Mockito.times(1)).findAll(map, paginationRequest);
+        verify(userService, Mockito.times(1)).findAll(map);
         assert responseEntity.getStatusCode().equals(HttpStatus.OK);
         assert responseEntity.getBody().getUserDTOList().get(0).equals(userDTO);
         assert responseEntity.getBody().getUserDTOList().size() == 2;

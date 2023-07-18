@@ -6,9 +6,6 @@ import com.mongotask.api.exception.NoSuchFilterException;
 import com.mongotask.api.mappers.UserMapper;
 import com.mongotask.api.model.UserDTO;
 import com.mongotask.api.repositories.UserRepository;
-import com.mongotask.api.repositories.filter.UserFilter;
-import com.mongotask.api.util.ApplicationContextProvider;
-import com.mongotask.api.request.PaginationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -47,18 +44,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> findAll(Map<String, String> map, PaginationRequest paginationRequest) {
+    public List<UserDTO> findAll(Map<String, String> map) {
         Query query = new Query();
+        query.with(Sort.by(map.remove("sort_order"), map.remove("sort_field")));
+        query.with(PageRequest.of(Integer.parseInt(map.remove("page")), Integer.parseInt(map.remove("size"))));
+
         for (Map.Entry<String, String> entry : map.entrySet()) {
             UserFilterType userFilterType = UserFilterType.getUserFilterTypeByFilterType(entry.getKey());
             if (userFilterType == null)
                 throw new NoSuchFilterException("No such filter type " + entry.getKey());
 
-            UserFilter userFilter = (UserFilter) ApplicationContextProvider.getApplicationContext().getBean(userFilterType.getFilterTypeClassName());
-            userFilter.filterUser(query, entry.getValue());
+            userFilterType.filterUser(query, entry.getValue());
         }
-        query.with(Sort.by(paginationRequest.getSort(), paginationRequest.getSortField()));
-        query.with(PageRequest.of(paginationRequest.getPage(), paginationRequest.getSize()));
+
         return mongoTemplate.find(query, User.class)
                 .stream()
                 .map(userMapper::userToUserDto)

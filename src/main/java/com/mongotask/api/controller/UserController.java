@@ -3,7 +3,6 @@ package com.mongotask.api.controller;
 import com.mongotask.api.constant.UserFilterType;
 import com.mongotask.api.model.UserDTO;
 import com.mongotask.api.exception.NoSuchFilterException;
-import com.mongotask.api.request.PaginationRequest;
 import com.mongotask.api.response.UserListResponse;
 import com.mongotask.api.response.UserResponse;
 import com.mongotask.api.response.error.ErrorResponse;
@@ -67,11 +66,10 @@ public class UserController {
     @ApiOperation(value = "Find User list, filter on User fields, sorting, paging")
     @GetMapping
     public ResponseEntity<UserListResponse> filterUsers(@RequestParam Map<String, String> map,
-                                                        @RequestBody PaginationRequest paginationRequest,
                                                         final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
         try {
-            List<UserDTO> list = userService.findAll(map, paginationRequest);
+            List<UserDTO> list = userService.findAll(map);
             UserListResponse userListResponse = UserListResponse.buildUserResponse(httpServletRequest.getRequestURI(), list);
             return ResponseEntity.ok()
                     .body(userListResponse);
@@ -115,8 +113,8 @@ public class UserController {
     @ApiOperation(value = "Update some distinct User fields by Id")
     @PatchMapping("/{id}")
     public ResponseEntity<UserResponse> patchUser(@PathVariable String id,
-                                             @RequestBody UserDTO userDTO,
-                                             final HttpServletRequest httpServletRequest) {
+                                                  @RequestBody UserDTO userDTO,
+                                                  final HttpServletRequest httpServletRequest) {
         HttpHeaders headers = new HttpHeaders();
 
         Optional<UserDTO> optionalUser = userService.patchUser(id, userDTO);

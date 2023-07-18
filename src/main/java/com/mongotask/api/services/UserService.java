@@ -1,7 +1,6 @@
 package com.mongotask.api.services;
 
 import com.mongotask.api.model.UserDTO;
-import com.mongotask.api.request.PaginationRequest;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +11,7 @@ public interface UserService {
 
     Optional<UserDTO> findUser(String userId);
 
-    List<UserDTO> findAll(Map<String, String> map, PaginationRequest paginationRequest);
+    List<UserDTO> findAll(Map<String, String> map);
 
     Optional<UserDTO> updateUser(String userId, UserDTO userDTO);
 
